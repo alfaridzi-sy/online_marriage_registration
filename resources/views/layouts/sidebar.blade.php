@@ -38,7 +38,7 @@
                             <span class="lan">Pengelolaan Data</span>
                         </a>
                         <ul class="sidebar-submenu">
-                            <li><a class="lan" href="{{ route('getDataJemaat') }}">Jemaat</a></li>
+                            <li><a class="lan" href="{{ route('getAllJemaat') }}">Jemaat</a></li>
                             <li><a class="lan" href="javascript:void(0)">Persyaratan Pernikahan</a></li>
                         </ul>
                     </li>

@@ -25,6 +25,10 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('ketua_stasi')->group(function () {
-        Route::get('data-jemaat', [UserController::class, 'getDataJemaat'])->name('getDataJemaat');
+        Route::get('data-jemaat', [UserController::class, 'getAllJemaat'])->name('getAllJemaat');
+        Route::post('simpan-data-jemaat', [UserController::class, 'storeDataJemaat'])->name('storeDataJemaat');
+        Route::get('data-jemaat/{id}', [UserController::class, 'getDataJemaat'])->name('getDataJemaat');
+        Route::put('update-jemaat/{id}', [UserController::class, 'updateDataJemaat'])->name('updateDataJemaat');
+        Route::delete('/hapus-jemaat/{id}', [UserController::class, 'destroy'])->name('hapusJemaat');
     });
 });
