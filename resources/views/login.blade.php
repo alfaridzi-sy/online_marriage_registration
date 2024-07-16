@@ -48,17 +48,18 @@
                 <div class="login-card">
                     <div>
                         <div class="login-main">
-                            <form class="theme-form">
+                            <form class="theme-form" action="{{ route('authenticate') }}" method="POST">
+                                @csrf
                                 <h4>Sign in to account</h4>
                                 <p>Enter your username & password to login</p>
                                 <div class="form-group">
                                     <label class="col-form-label">Username</label>
-                                    <input class="form-control" type="text" required="" placeholder="Username">
+                                    <input class="form-control" type="text" name="username" placeholder="Username">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label">Password</label>
                                     <div class="form-input position-relative">
-                                        <input class="form-control" type="password" name="login[password]"
+                                        <input class="form-control" type="password" name="password"
                                             required="" placeholder="*********">
                                         <div class="show-hide"><span class="show"> </span></div>
                                     </div>

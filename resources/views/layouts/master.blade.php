@@ -61,13 +61,27 @@
                         <li class="profile-nav onhover-dropdown p-0 me-0">
                             <div class="media profile-media"><img class="b-r-10"
                                     src="{{ asset('assets/images/dashboard/profile.jpg') }}" alt="">
-                                <div class="media-body"><span>Emay Walter</span>
-                                    <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
+                                <div class="media-body"><span><?php echo auth()->user()->full_name; ?></span>
+                                    <p class="mb-0 font-roboto">
+                                        <?php
+                                        if (auth()->user()->role == 'ketua_stasi') {
+                                            echo 'Ketua Stasi';
+                                        } else {
+                                            echo 'Jemaat';
+                                        }
+                                        ?>
+                                        <i class="middle fa fa-angle-down"></i>
+                                    </p>
                                 </div>
                             </div>
                             <ul class="profile-dropdown onhover-show-div">
-                                <li><a href="#"><i data-feather="user"></i><span>Account </span></a></li>
-                                <li><a href="#"><i data-feather="log-in"> </i><span>Log in</span></a></li>
+                                <li>
+                                    <a class="nav-link text-light" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#logoutModal">
+                                        <i data-feather="log-out"> </i>
+                                        <span>Log out</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -104,6 +118,30 @@
             </div>
             <!-- footer start-->
             @include('layouts.footer')
+        </div>
+    </div>
+
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="logoutModalLabel">Konfirmasi Logout</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Apakah Anda yakin ingin logout?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <a class="btn btn-primary" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     @include('layouts.scripts')
