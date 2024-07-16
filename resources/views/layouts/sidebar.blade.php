@@ -39,7 +39,7 @@
                         </a>
                         <ul class="sidebar-submenu">
                             <li><a class="lan" href="{{ route('getAllJemaat') }}">Jemaat</a></li>
-                            <li><a class="lan" href="javascript:void(0)">Persyaratan Pernikahan</a></li>
+                            <li><a class="lan" href="{{ route('terms_and_conditions.index') }}">Persyaratan Pernikahan</a></li>
                         </ul>
                     </li>
                     <li class="sidebar-list">

@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
-@section('page_title')
-    Data Jemaat - Online Marriage Registration System
-@endsection
+@section('page_title', 'Jemaat - Online Marriage Registration System')
 
 @section('breadcrumb')
     <div class="container-fluid">

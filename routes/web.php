@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TermsAndConditionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('data-jemaat/{id}', [UserController::class, 'getDataJemaat'])->name('getDataJemaat');
         Route::put('update-jemaat/{id}', [UserController::class, 'updateDataJemaat'])->name('updateDataJemaat');
         Route::delete('/hapus-jemaat/{id}', [UserController::class, 'destroy'])->name('hapusJemaat');
+
+        Route::resource('terms_and_conditions', TermsAndConditionController::class)->except(['create', 'show']);
     });
 });

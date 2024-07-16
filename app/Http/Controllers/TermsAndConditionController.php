@@ -2,85 +2,53 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreTermsAndConditionRequest;
-use App\Http\Requests\UpdateTermsAndConditionRequest;
+use Illuminate\Http\Request;
 use App\Models\TermsAndCondition;
 
 class TermsAndConditionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $terms = TermsAndCondition::all();
+        return view('ketua_stasi.data_terms', compact('terms'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        TermsAndCondition::create($request->all());
+
+        return response()->json(['success' => 'Syarat dan ketentuan berhasil dibuat.']);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreTermsAndConditionRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreTermsAndConditionRequest $request)
+    public function edit($id)
     {
-        //
+        $term = TermsAndCondition::findOrFail($id);
+        return response()->json($term);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\TermsAndCondition  $TermsAndCondition
-     * @return \Illuminate\Http\Response
-     */
-    public function show(TermsAndCondition $TermsAndCondition)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        $term = TermsAndCondition::findOrFail($id);
+        $term->update($request->all());
+
+        return response()->json(['success' => 'Syarat dan ketentuan berhasil diperbarui.']);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\TermsAndCondition  $TermsAndCondition
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(TermsAndCondition $TermsAndCondition)
+    public function destroy($id)
     {
-        //
-    }
+        $term = TermsAndCondition::findOrFail($id);
+        $term->delete();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateTermsAndConditionRequest  $request
-     * @param  \App\Models\TermsAndCondition  $TermsAndCondition
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateTermsAndConditionRequest $request, TermsAndCondition $TermsAndCondition)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\TermsAndCondition  $TermsAndCondition
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(TermsAndCondition $TermsAndCondition)
-    {
-        //
+        return response()->json(['success' => 'Syarat dan ketentuan berhasil dihapus.']);
     }
 }
