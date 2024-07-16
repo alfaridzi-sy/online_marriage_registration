@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreTermsAndConditionsRequest;
-use App\Http\Requests\UpdateTermsAndConditionsRequest;
-use App\Models\TermsAndConditions;
+use App\Http\Requests\StoreTermsAndConditionRequest;
+use App\Http\Requests\UpdateTermsAndConditionRequest;
+use App\Models\TermsAndCondition;
 
-class TermsAndConditionsController extends Controller
+class TermsAndConditionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class TermsAndConditionsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreTermsAndConditionsRequest  $request
+     * @param  \App\Http\Requests\StoreTermsAndConditionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTermsAndConditionsRequest $request)
+    public function store(StoreTermsAndConditionRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class TermsAndConditionsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TermsAndConditions  $termsAndConditions
+     * @param  \App\Models\TermsAndCondition  $TermsAndCondition
      * @return \Illuminate\Http\Response
      */
-    public function show(TermsAndConditions $termsAndConditions)
+    public function show(TermsAndCondition $TermsAndCondition)
     {
         //
     }
@@ -53,10 +53,10 @@ class TermsAndConditionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TermsAndConditions  $termsAndConditions
+     * @param  \App\Models\TermsAndCondition  $TermsAndCondition
      * @return \Illuminate\Http\Response
      */
-    public function edit(TermsAndConditions $termsAndConditions)
+    public function edit(TermsAndCondition $TermsAndCondition)
     {
         //
     }
@@ -64,11 +64,11 @@ class TermsAndConditionsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateTermsAndConditionsRequest  $request
-     * @param  \App\Models\TermsAndConditions  $termsAndConditions
+     * @param  \App\Http\Requests\UpdateTermsAndConditionRequest  $request
+     * @param  \App\Models\TermsAndCondition  $TermsAndCondition
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTermsAndConditionsRequest $request, TermsAndConditions $termsAndConditions)
+    public function update(UpdateTermsAndConditionRequest $request, TermsAndCondition $TermsAndCondition)
     {
         //
     }
@@ -76,10 +76,10 @@ class TermsAndConditionsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TermsAndConditions  $termsAndConditions
+     * @param  \App\Models\TermsAndCondition  $TermsAndCondition
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TermsAndConditions $termsAndConditions)
+    public function destroy(TermsAndCondition $TermsAndCondition)
     {
         //
     }

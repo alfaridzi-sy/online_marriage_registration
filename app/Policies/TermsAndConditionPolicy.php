@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\TermsAndConditions;
+use App\Models\TermsAndCondition;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TermsAndConditionsPolicy
+class TermsAndConditionPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class TermsAndConditionsPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\TermsAndConditions  $termsAndConditions
+     * @param  \App\Models\TermsAndCondition  $TermsAndCondition
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, TermsAndConditions $termsAndConditions)
+    public function view(User $user, TermsAndCondition $TermsAndCondition)
     {
         //
     }
@@ -48,10 +48,10 @@ class TermsAndConditionsPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\TermsAndConditions  $termsAndConditions
+     * @param  \App\Models\TermsAndCondition  $TermsAndCondition
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, TermsAndConditions $termsAndConditions)
+    public function update(User $user, TermsAndCondition $TermsAndCondition)
     {
         //
     }
@@ -60,10 +60,10 @@ class TermsAndConditionsPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\TermsAndConditions  $termsAndConditions
+     * @param  \App\Models\TermsAndCondition  $TermsAndCondition
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, TermsAndConditions $termsAndConditions)
+    public function delete(User $user, TermsAndCondition $TermsAndCondition)
     {
         //
     }
@@ -72,10 +72,10 @@ class TermsAndConditionsPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\TermsAndConditions  $termsAndConditions
+     * @param  \App\Models\TermsAndCondition  $TermsAndCondition
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, TermsAndConditions $termsAndConditions)
+    public function restore(User $user, TermsAndCondition $TermsAndCondition)
     {
         //
     }
@@ -84,10 +84,10 @@ class TermsAndConditionsPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\TermsAndConditions  $termsAndConditions
+     * @param  \App\Models\TermsAndCondition  $TermsAndCondition
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, TermsAndConditions $termsAndConditions)
+    public function forceDelete(User $user, TermsAndCondition $TermsAndCondition)
     {
         //
     }
