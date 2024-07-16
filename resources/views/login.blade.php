@@ -61,7 +61,6 @@
                                     <div class="form-input position-relative">
                                         <input class="form-control" type="password" name="password"
                                             required="" placeholder="*********">
-                                        <div class="show-hide"><span class="show"> </span></div>
                                     </div>
                                 </div>
                                 <div class="form-group mb-0 mt-4">
