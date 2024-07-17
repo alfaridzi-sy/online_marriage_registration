@@ -22,6 +22,8 @@ Route::get('/', function () {
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
+Route::get('/otp/verify', [LoginController::class, 'showVerifyOtpForm'])->name('otp.verify');
+Route::post('/otp/verify', [LoginController::class, 'verifyOtp'])->name('otp.verify');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
