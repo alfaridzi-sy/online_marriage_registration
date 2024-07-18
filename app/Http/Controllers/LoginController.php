@@ -66,22 +66,16 @@ class LoginController extends Controller
             'otp_code' => ['required', 'numeric', 'digits:6'],
         ]);
 
-        $otpRecord = DB::table('otp')
+        $otpRecord = DB::table('otp_codes')
             ->where('otp_code', $request->otp_code)
-            ->where('is_used', false)
             ->where('expires_at', '>', now())
             ->first();
 
         if ($otpRecord) {
-            // Tandai OTP sebagai telah digunakan
-            DB::table('otp')
-                ->where('id', $otpRecord->id)
-                ->update(['is_used' => true]);
-
             // Lanjutkan proses login dan arahkan pengguna ke halaman yang sesuai berdasarkan peran mereka
             $user = Auth::user();
             if ($user->role === 'jemaat') {
-                return redirect()->intended('/');
+                return redirect()->intended('/jemaat/persyaratan-pernikahan');
             } elseif ($user->role === 'ketua_stasi') {
                 return redirect()->intended('/ketua_stasi/data-jemaat');
             } else {
