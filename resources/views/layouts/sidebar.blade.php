@@ -26,28 +26,53 @@
                             <i class="fa fa-angle-right ps-2" aria-hidden="true"></i>
                         </div>
                     </li>
-                    <li class="sidebar-main-title">
-                        <div>
-                            <h6 class="lan">Pengelolaan Data</h6>
-                            <p class="lan">Jemaat, Marriage, Terms.</p>
-                        </div>
-                    </li>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title" href="#">
-                            <i data-feather="home"></i>
-                            <span class="lan">Pengelolaan Data</span>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li><a class="lan" href="{{ route('getAllJemaat') }}">Jemaat</a></li>
-                            <li><a class="lan" href="{{ route('terms_and_conditions.index') }}">Persyaratan Pernikahan</a></li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
-                            <i data-feather="check-square"></i>
-                            <span>Persetujuan Pernikahan</span>
-                        </a>
-                    </li>
+                    @auth
+                        @if (Auth::user()->role === 'ketua_stasi')
+                            <li class="sidebar-main-title">
+                                <div>
+                                    <h6 class="lan">Pengelolaan Data</h6>
+                                    <p class="lan">Jemaat, Marriage, Terms.</p>
+                                </div>
+                            </li>
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title" href="#">
+                                    <i data-feather="home"></i>
+                                    <span class="lan">Pengelolaan Data</span>
+                                </a>
+                                <ul class="sidebar-submenu">
+                                    <li><a class="lan" href="{{ route('getAllJemaat') }}">Jemaat</a></li>
+                                    <li><a class="lan" href="{{ route('terms_and_conditions.index') }}">Persyaratan
+                                            Pernikahan</a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title link-nav" href="{{ route('getMarriageApplicationsData') }}">
+                                    <i data-feather="check-square"></i>
+                                    <span>Persetujuan Pernikahan</span>
+                                </a>
+                            </li>
+                        @elseif(Auth::user()->role === 'jemaat')
+                        <li class="sidebar-main-title">
+                            <div>
+                                <h6 class="lan">Pengajuan Pernikahan</h6>
+                                <p class="lan">persyaratan dan pengajuan.</p>
+                            </div>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{{ route('getTermsAndCondition') }}">
+                                <i data-feather="file-plus"></i>
+                                <span>Pengajuan Pernikahan</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-list">
+                            <a class="sidebar-link sidebar-title link-nav" href="{{ route('getMarriageApplicationStatus') }}">
+                                <i data-feather="pie-chart"></i>
+                                <span>Status Pengajuan</span>
+                            </a>
+                        </li>
+
+                        @endif
+                    @endauth
                 </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

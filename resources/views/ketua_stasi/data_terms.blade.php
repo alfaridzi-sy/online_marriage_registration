@@ -44,21 +44,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($terms as $key => $term)
+                            @if ($terms->isEmpty())
                                 <tr>
-                                    <th scope="row">{{ $key + 1 }}</th>
-                                    <td>{{ $term->title }}</td>
-                                    <td>{{ $term->description }}</td>
-                                    <td class="text-center">
-                                        <div class="btn-group">
-                                            <button class="btn btn-warning btn-block" data-id="{{ $term->id }}"
-                                                onclick="editTerm(event)">Edit</button>
-                                            <button class="btn btn-secondary btn-block"
-                                                onclick="konfirmasiHapusTerm({{ $term->id }})">Hapus</button>
-                                        </div>
-                                    </td>
+                                    <td colspan="4" class="text-center">Tidak ada data tersedia</td>
                                 </tr>
-                            @endforeach
+                            @else
+                                @foreach ($terms as $key => $term)
+                                    <tr>
+                                        <th scope="row">{{ $key + 1 }}</th>
+                                        <td>{{ $term->title }}</td>
+                                        <td>{{ $term->description }}</td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <button class="btn btn-warning btn-block" data-id="{{ $term->id }}"
+                                                    onclick="editTerm(event)">Edit</button>
+                                                <button class="btn btn-secondary btn-block"
+                                                    onclick="konfirmasiHapusTerm({{ $term->id }})">Hapus</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>
