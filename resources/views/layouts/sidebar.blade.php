@@ -46,7 +46,7 @@
                                 </ul>
                             </li>
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)">
+                                <a class="sidebar-link sidebar-title link-nav" href="{{ route('getMarriageApplicationsData') }}">
                                     <i data-feather="check-square"></i>
                                     <span>Persetujuan Pernikahan</span>
                                 </a>
