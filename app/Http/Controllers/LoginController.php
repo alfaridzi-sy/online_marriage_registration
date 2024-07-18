@@ -27,7 +27,7 @@ class LoginController extends Controller
 
             // Memeriksa nilai field 'role' dari pengguna
             if($user->role === 'jemaat') {
-                return redirect()->intended('/');
+                return redirect()->intended('/jemaat/persyaratan-pernikahan');
             } elseif ($user->role === 'ketua_stasi') {
                 return redirect()->intended('/ketua_stasi/data-jemaat');
             } else {

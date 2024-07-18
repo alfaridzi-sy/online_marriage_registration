@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JemaatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -34,4 +35,13 @@ Route::middleware(['auth'])->group(function () {
 
         Route::resource('terms_and_conditions', TermsAndConditionController::class)->except(['create', 'show']);
     });
+
+    Route::prefix('jemaat')->group(function () {
+        Route::get('persyaratan-pernikahan', [JemaatController::class, 'getTermsAndCondition'])->name('getTermsAndCondition');
+        Route::get('pengajuan-pernikahan', [JemaatController::class, 'showMarriageApplicationsForm'])->name('showMarriageApplicationsForm');
+        Route::post('store-pengajuan-pernikahan', [JemaatController::class, 'storeMarriageApplicationsForm'])->name('storeMarriageApplicationsForm');
+        Route::get('status-pengajuan-pernikahan', [JemaatController::class, 'getMarriageApplicationStatus'])->name('getMarriageApplicationStatus');
+    });
+
+
 });
