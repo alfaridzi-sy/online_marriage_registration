@@ -19,7 +19,7 @@ use App\Http\Controllers\MarriageApplicationController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
